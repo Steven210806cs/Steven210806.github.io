@@ -6,76 +6,93 @@
 
 <style>
 
-.btn-musica {
-    margin-top: 20px;
-    padding: 12px 25px;
-    font-size: 16px;
-    background: #ff4d6d;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-
-.btn-musica:hover {
-    background: #ff1e4d;
-}
 body {
     margin: 0;
     font-family: Arial;
 }
+
+/* TITULOS */
 h1 {
     font-size: 60px;
 }
+
+/* TEXTO */
 p {
-    font-size: 30px;
+    font-size: 20px;
+    max-width: 700px;
+    margin: 10px auto;
 }
 
-.galeria {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 10px;
-    justify-items: center;
-    margin-top: 20px;
-}
-
-.galeria img {
-    width: 150px;
-    border-radius: 10px;
-}
-.galeria img:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
-}
+/* SLIDES */
 .slide {
     display: none;
     height: 100vh;
     width: 100%;
     color: white;
-    text-align: center;
-    padding-top: 20%;
-    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.active {
+    display: flex;
+}
 
+/* COLORES */
 .slide1 { background: #1e1e2f; }
 .slide2 { background: #3a3a5a; }
 .slide3 { background: #222; }
 
-.active {
-    display: block;
-}
-
-
+/* BOTONES */
 button {
-    margin-top: 60px;
+    margin-top: 30px;
     padding: 10px 20px;
-    font-size: 30px;
+    font-size: 18px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
 }
+
+.btn-musica {
+    background: #ff4d6d;
+    color: white;
+    border-radius: 20px;
+}
+
+.btn-musica:hover {
+    background: #ff1e4d;
+}
+
+/* GALERIA 2x2 */
+.galeria {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* IMAGENES GRANDES */
+.galeria img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+}
+
+/* EFECTO HOVER */
+.galeria img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* IMAGENES INDIVIDUALES */
+img {
+    max-width: 90%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
 </style>
 </head>
 
@@ -114,8 +131,8 @@ button {
     <h1>Mi mujer :)</h1>
     <p>Mirate lo bella que eres, hermosa a más no poder mi mujercita pequeña</p>
     <div class="galeria">
-        <img src="foto1.png.jpeg">
-        <img src="foto2.jpeg">
+        <img src="sola.jpeg">
+        <img src="sola2.jpeg">
         <img src="foto3.jpeg">
         <img src="foto4.jpeg">
     </div>
