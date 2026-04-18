@@ -3,76 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <title>Para ti ❤️</title>
+
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #1e1e2f, #3a3a5a);
+    font-family: Arial;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    height: 100vh;
+    width: 100%;
     color: white;
     text-align: center;
+    padding-top: 20%;
+    position: absolute;
 }
 
-.section {
-    padding: 80px 20px;
+.slide1 { background: #1e1e2f; }
+.slide2 { background: #3a3a5a; }
+.slide3 { background: #222; }
+
+.active {
+    display: block;
 }
 
-h1 {
-    font-size: 3em;
-}
-
-p {
-    font-size: 1.2em;
-    max-width: 600px;
-    margin: auto;
-}
-
-img {
-    width: 250px;
-    border-radius: 15px;
-    margin: 10px;
-}
-
-.fade {
-    animation: fadeIn 2s;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="section fade">
+<div class="slide slide1 active">
     <h1>Para ti ❤️</h1>
     <p>Hice esto porque hay cosas que no se pueden decir en un solo mensaje...</p>
+    <button onclick="nextSlide()">Siguiente</button>
 </div>
 
-<div class="section fade">
-    <h2>Nuestros momentos</h2>
-    <img src="https://via.placeholder.com/250">
-    <img src="https://via.placeholder.com/250">
-    <img src="https://via.placeholder.com/250">
+<div class="slide slide2">
+    <h1>Nuestros momentos</h1>
+    <p>Aquí puedes poner fotos</p>
+    <button onclick="nextSlide()">Siguiente</button>
 </div>
 
-<div class="section fade">
-    <h2>Lo que quiero decirte</h2>
-    <p>
-    No sé si esto cambie algo...  
-    pero sí sé que lo que vivimos fue real.  
-    Y aunque el tiempo pase, hay cosas que no se olvidan.  
-    </p>
+<div class="slide slide3">
+    <h1>Lo que quiero decirte</h1>
+    <p>Tu mensaje importante aquí...</p>
 </div>
 
-<div class="section fade">
-    <h2>Gracias por todo</h2>
-    <p>
-    Por cada momento, cada risa y cada recuerdo.  
-    Esto no es para presionarte… solo para que sepas que aquí hay alguien que aún valora lo que fueron.
-    </p>
-</div>
+<script>
+let current = 0;
+let slides = document.querySelectorAll(".slide");
+
+function nextSlide() {
+    slides[current].classList.remove("active");
+    current++;
+    if (current < slides.length) {
+        slides[current].classList.add("active");
+    }
+}
+</script>
 
 </body>
 </html>
