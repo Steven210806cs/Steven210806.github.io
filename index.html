@@ -63,11 +63,11 @@ button {
 
 <div class="slide slide1 active">
     
-    <audio id="miAudio" loop>
+    <audio class="audioSlide" loop>
     <source src="unacervezas.mp3" type="audio/mpeg">
     </audio>
 
-    <button onclick="toggleAudio()" class="btn-musica">
+    <button onclick="toggleAudio(0)" class="btn-musica">
     🎵 Escuchar esto
     </button>
     
@@ -84,12 +84,26 @@ button {
 </div>
 
 <div class="slide slide2">
+    <audio class="audioSlide" loop>
+    <source src="mujer.mp3" type="audio/mpeg">
+    </audio>
+
+    <button onclick="toggleAudio(1)" class="btn-musica">
+    🎵 Escuchar esto
+    </button>
     <h1>Mi mujer :)</h1>
     <p>Mirate lo bella que eres, hermosa a más no poder mi mujercita pequeña</p>
     <button onclick="nextSlide()">Siguiente</button>
 </div>
 
 <div class="slide slide3">
+     <audio class="audioSlide" loop>
+    <source src=".mp3" type="audio/mpeg">
+    </audio>
+
+    <button onclick="toggleAudio(2)" class="btn-musica">
+    🎵 Escuchar esto
+    </button>
     <h1>Lo que quiero decirte</h1>
     <p>Tu mensaje importante aquí...</p>
     <button onclick="goToStart()">Volver al inicio</button>
@@ -98,32 +112,53 @@ button {
 <script>
 let current = 0;
 let slides = document.querySelectorAll(".slide");
+let audios = document.querySelectorAll(".audioSlide");
 
 function nextSlide() {
+
+    // apagar todos los audios
+    audios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+
     slides[current].classList.remove("active");
     current++;
+
     if (current < slides.length) {
         slides[current].classList.add("active");
     }
 }
-let audio = document.getElementById("miAudio");
-
-function toggleAudio() {
-let btn = document.querySelector(".btn-musica");
-
-if (audio.paused) {
-      audio.play();
-      btn.innerText = "⏸️ Pausar";
-} else {
-     audio.pause();
-    btn.innerText = "🎵 Escuchar esto";
-    }
-}
 
 function goToStart() {
+
+    audios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+
     slides[current].classList.remove("active");
     current = 0;
     slides[current].classList.add("active");
+}
+
+function toggleAudio(index) {
+
+    let audio = audios[index];
+
+    if (audio.paused) {
+
+        // apagar todos antes
+        audios.forEach(a => {
+            a.pause();
+            a.currentTime = 0;
+        });
+
+        audio.play();
+
+    } else {
+        audio.pause();
+    }
 }
 </script>
 
