@@ -57,6 +57,7 @@ button {
 <div class="slide slide3">
     <h1>Lo que quiero decirte</h1>
     <p>Tu mensaje importante aquí...</p>
+    <button onclick="goToStart()">Volver al inicio</button>
 </div>
 
 <script>
@@ -69,6 +70,12 @@ function nextSlide() {
     if (current < slides.length) {
         slides[current].classList.add("active");
     }
+}
+
+function goToStart() {
+    slides[current].classList.remove("active");
+    current = 0;
+    slides[current].classList.add("active");
 }
 </script>
 
